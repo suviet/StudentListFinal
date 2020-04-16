@@ -1,5 +1,5 @@
 # StudentList
-Simple CRUD application made with Spring Boot
+Simple CRUD application made with Spring Boot 2.2.5
 
 - Spring Boot
 - Thymeleaf
