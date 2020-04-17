@@ -17,27 +17,27 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailServiceImpl userDetailsService;
-    
-	@Override
+
+    @Override
     protected void configure(HttpSecurity http) throws Exception {
-    	http
-    		.authorizeRequests().antMatchers("/css/**", "/signup", "/saveuser").permitAll() // Enable css when logged out
-    			.and()
-            .authorizeRequests()
+        http
+                .authorizeRequests().antMatchers("/css/**", "/signup", "/saveuser").permitAll() // Enable css when logged out
+                .and()
+                .authorizeRequests()
                 .anyRequest().authenticated()
                 .and()
-            .formLogin()
+                .formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/students")
                 .permitAll()
-            	.and()
-            .logout()
-            	.permitAll()
-            	.and();
+                .and()
+                .logout()
+                .permitAll()
+                .and();
     }
-     
+
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-    	auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
+        auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
     }
 }

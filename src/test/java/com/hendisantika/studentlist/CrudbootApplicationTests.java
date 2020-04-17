@@ -19,7 +19,7 @@ import static org.junit.Assert.assertNull;
 public class CrudbootApplicationTests {
 
 
-	private UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Autowired
     public void setUserRepository(UserRepository userRepository) {
@@ -31,18 +31,19 @@ public class CrudbootApplicationTests {
     @Autowired
     public void setStudentRepository(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
-    }    
-    
+
+    }
+
     @Test
     public void addUser() {
-    	User user = new User("testuser", "testuser", "USER");
+        User user = new User("testuser", "testuser", "USER");
 
-    	assertNull(user.getId());
-    	userRepository.save(user);
-    	assertNotNull(user.getId());
+        assertNull(user.getId());
+        userRepository.save(user);
+        assertNotNull(user.getId());
     }
-    
-	@Test
+
+    @Test
     public void addStudent() {
         Student student = new Student("Test", "Student", "IT", "test@test.com");
 
@@ -50,5 +51,5 @@ public class CrudbootApplicationTests {
         Optional<Student> findStudent = studentRepository.findById(student.getId());
         assertNotNull(findStudent);
     }
-    
+
 }

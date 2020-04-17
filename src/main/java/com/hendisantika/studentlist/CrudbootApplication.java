@@ -32,7 +32,7 @@ public class CrudbootApplication {
      * @return
      */
     @Bean
-    public CommandLineRunner demo(StudentRepository repository, CourseRepository crepository, UserRepository urepository) {
+    public CommandLineRunner demo(StudentRepository repository,     CourseRepository crepository, UserRepository urepository) {
         return (args) -> {
             // save students
             Student student1 = new Student("Akainu", "Sakazuki", "IT", "akainu_sakazuki@onepiece.com");
